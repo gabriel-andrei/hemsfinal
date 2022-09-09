@@ -40,7 +40,7 @@
                       </a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=service_requests" class="nav-link nav-service_requests">
+                      <a href="<?php echo base_url ?>admin/?page=inventory" class="nav-link nav-inventory">
                         <i class="nav-icon fas fa-clipboard-check"></i>
                         <p>
                           Inventory
@@ -57,7 +57,7 @@
                     </li>
                     <li class="nav-header">Reports</li>
                       <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=reports/daily_sales_report" class="nav-link nav-reports_daily_sales_report">
+                      <a href="<?php echo base_url ?>admin/?page=reports/daily_sales_report" class="nav-link nav-reports-daily_sales_report">
                         <i class="nav-icon far fa-circle"></i>
                         <p>
                           Daily Sales Report
@@ -65,7 +65,7 @@
                       </a>
                     </li>
                     <li class="nav-item dropdown">
-                    <a href="<?php echo base_url ?>admin/?page=reports/daily_service_report" class="nav-link nav-reports_daily_service_report">
+                    <a href="<?php echo base_url ?>admin/?page=reports/daily_service_report" class="nav-link nav-daily_service_report">
                         <i class="nav-icon far fa-circle"></i>
                         <p>
                           Daily Service Report
