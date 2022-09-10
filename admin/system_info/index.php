@@ -38,10 +38,6 @@
 					<input type="text" class="form-control form-control-sm" name="short_name" id="short_name" value="<?php echo  $_settings->info('short_name') ?>">
 				</div>
 			<div class="form-group">
-				<label for="" class="control-label">About Us</label>
-	             <textarea name="about_us" id="" cols="30" rows="2" class="form-control summernote"><?php echo  is_file(base_app.'about.html') ? file_get_contents(base_app.'about.html') : "" ?></textarea>
-			</div>
-			<div class="form-group">
 				<label for="" class="control-label">System Logo</label>
 				<div class="custom-file">
 	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))">

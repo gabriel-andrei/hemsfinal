@@ -60,8 +60,7 @@
         <!-- <a href=""></a> -->
         </strong>
         All rights reserved.
-       
-      </footer>
+</footer>
     </div>
     <!-- ./wrapper -->
    

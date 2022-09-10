@@ -57,7 +57,7 @@
                     </li>
                     <li class="nav-header">Reports</li>
                       <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=reports/daily_sales_report" class="nav-link nav-reports-daily_sales_report">
+                      <a href="<?php echo base_url ?>admin/?page=sales_report" class="nav-link nav-sales_report">
                         <i class="nav-icon far fa-circle"></i>
                         <p>
                           Daily Sales Report
@@ -65,7 +65,7 @@
                       </a>
                     </li>
                     <li class="nav-item dropdown">
-                    <a href="<?php echo base_url ?>admin/?page=reports/daily_service_report" class="nav-link nav-daily_service_report">
+                    <a href="<?php echo base_url ?>admin/?page=service_report" class="nav-link nav-service_report">
                         <i class="nav-icon far fa-circle"></i>
                         <p>
                           Daily Service Report
@@ -75,7 +75,7 @@
                     <?php if($_settings->userdata('type') == 1): ?>
                     <li class="nav-header">Maintenance</li>
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=maintenance/category" class="nav-link nav-maintenance/category">
+                      <a href="<?php echo base_url ?>admin/?page=service_list" class="nav-link nav-service_list">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
                           Service List
@@ -83,7 +83,7 @@
                       </a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=maintenance/services" class="nav-link nav-maintenance/services">
+                      <a href="<?php echo base_url ?>admin/?page=mechanic_list" class="nav-link nav-mechanic_list">
                         <i class="nav-icon fas fa-user-friends"></i>
                         <p>
                           Mechanic List
@@ -91,7 +91,7 @@
                       </a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=user/list" class="nav-link nav-user_list">
+                      <a href="<?php echo base_url ?>admin/?page=user_list" class="nav-link nav-user_list">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
                           User List
