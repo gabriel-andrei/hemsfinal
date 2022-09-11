@@ -35,7 +35,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!-- <?php 
+					<?php 
 					$i = 1;
 						$qry = $conn->query("SELECT * from `service_list` order by service asc ");
 						while($row = $qry->fetch_assoc()):
@@ -48,6 +48,7 @@
 							<td>
                                 <p class="truncate-3 m-0 lh-1"><small><?php echo $row['description'] ?></small></p>
                             </td>
+							<td><?php echo $row['price'] ?></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
                                     <span class="badge badge-success">Active</span>
@@ -67,7 +68,7 @@
 				                  </div>
 							</td>
 						</tr>
-					<?php endwhile; ?> -->
+					<?php endwhile; ?>
 				</tbody>
 			</table>
 		</div>

@@ -17,7 +17,7 @@
 	<div class="card-header">
 		<h3 class="card-title">List of System Users</h3>
 		<div class="card-tools">
-			<a href="?page=user/manage_user" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="?page=user_list/manage_user" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
 		</div>
 	</div>
 	<div class="card-body">

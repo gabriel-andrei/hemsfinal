@@ -1,5 +1,5 @@
 <?php 
-require_once('./../../config.php');
+require_once('../config.php');
 if(isset($_GET['id'])){
 $qry = $conn->query("SELECT s.*,c.category FROM `service_requests` s inner join `categories` c where s.id = '{$_GET['id']}' ");
 foreach($qry->fetch_array() as $k => $v){
@@ -25,6 +25,8 @@ while($row = $meta->fetch_assoc()){
     border-radius: 0;
 }
 </style>
+<div class="card card-outline card-primary">
+<div class="card-body">
 <div class="container-fluid">
     <form action="" id="request_form">
         <input type="hidden" name="id" value="<?php echo isset($id) ?  $id : "" ?>">
@@ -128,13 +130,17 @@ while($row = $meta->fetch_assoc()){
             </div>
         </div>
     </div>
-        <div class="w-100 d-flex justify-content-end mx-2">
-            <div class="col-auto">
-                <button class="btn btn-primary btn-sm rounded-0">Save Request</button>
-                <button class="btn btn-light btn-sm rounded-0" type="button" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+        <div class="card-footer">
+			<div class="col-md-12">
+				<div class="row">
+					<button class="btn btn-sm btn-primary mr-2" form="#">Save</button>
+					<a class="btn btn-sm btn-secondary" href="./?page=transactions/index">Cancel</a>
+				</div>
+			</div>
+	    </div>
     </form>
+</div>
+</div>
 </div>
 <script>
     $(function(){

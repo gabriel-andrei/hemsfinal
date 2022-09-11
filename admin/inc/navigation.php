@@ -48,7 +48,7 @@
                       </a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=report" class="nav-link nav-report">
+                      <a href="<?php echo base_url ?>admin/?page=transactions" class="nav-link nav-transactions">
                         <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>
                           Transactions

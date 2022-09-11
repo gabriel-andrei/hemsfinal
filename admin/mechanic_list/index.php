@@ -18,32 +18,49 @@
 					<col width="5%">
 					<col width="15%">
 					<col width="30%">
+					<col width="15%">
 					<col width="10%">
 					<col width="15%">
+					<col width="15%">
+
 				</colgroup>
 				<thead>
 					<tr>
 						<th>#</th>
 						<th>Date Created</th>
-						<th>Mechanic Name</th>
+						<th>Machinist Name</th>
+						<th>Contact</th>
+						<th>Email</th>	
 						<th>Status</th>
 						<th>Action</th>
+						
 					</tr>
 				</thead>
 				<tbody>
-					<!-- <?php 
+				<?php 
 					$i = 1;
-						$qry = $conn->query("SELECT * from `service_list` order by service asc ");
+						$qry = $conn->query("SELECT * from `mechanics_list` order by (`name`) asc ");
 						while($row = $qry->fetch_assoc()):
-                            $row['description'] = strip_tags(html_entity_decode(stripslashes($row['description'])));
+							foreach($row as $k=> $v){
+								$row[$k] = trim(stripslashes($v));
+							}
 					?>
 						<tr>
 							<td class="text-center"><?php echo $i++; ?></td>
 							<td><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
-							<td><?php echo $row['service'] ?></td>
+							<td><?php echo ucwords($row['name']) ?></td>
 							<td>
-                                <p class="truncate-3 m-0 lh-1"><small><?php echo $row['description'] ?></small></p>
-                            </td>
+								<p class="m-0 lh-1">
+								<?php echo $row['contact'] ?>
+							
+								</p>
+							</td>
+							<td>
+								<p class="m-0 lh-1">
+								<?php echo $row['email'] ?>
+								
+								</p>
+							</td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
                                     <span class="badge badge-success">Active</span>
@@ -57,13 +74,13 @@
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item" href="?page=maintenance/manage_service&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <a class="dropdown-item" href="?page=mechanics/manage_mechanic&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
 				                    <div class="dropdown-divider"></div>
 				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
 				                  </div>
 							</td>
 						</tr>
-					<?php endwhile; ?> -->
+					<?php endwhile; ?>
 				</tbody>
 			</table>
 		</div>
