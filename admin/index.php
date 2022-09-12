@@ -76,8 +76,8 @@
   <div class="modal fade" id="viewer_modal" role='dialog'>
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-              <button type="button" class="btn-close" data-dismiss="modal"><span class="fa fa-times"></span></button>
-              <img src="" alt="">
+        <button type="button" class="btn-close" data-dismiss="modal"><span class="fa fa-times"></span></button>
+        <img src="" alt="">
       </div>
     </div>
   </div>

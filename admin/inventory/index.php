@@ -6,9 +6,9 @@
 <div class="card card-outline card-primary">
 	<div class="card-header">
 		<h3 class="card-title">Inventory</h3>
-		<div class="card-tools">
-			<a href="javascript:void(0)" id="create_new" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
-		</div>
+			<div class="card-tools">
+				<a href=" " id="create_new" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
+			</div>
 	</div>
 	<div class="card-body">
 		<div class="container-fluid">
@@ -18,19 +18,18 @@
 					<col width="5%">
 					<col width="15%">
 					<col width="15%">
+					<col width="20%">
 					<col width="15%">
-					<col width="15%">
-                    <col width="15%">
+                    <col width="10%">
                     <col width="10%">
 					<col width="15%">
-                    <col width="15%">
 				</colgroup>
 				<thead>
 					<tr>
 						<th>#</th>
 						<th>Date Created</th>
 						<th>Image</th>
-						<th>Product</th>
+						<th>Name</th>
 						<th>Price</th>
 						<th>Available Stock</th>
                         <th>Sold</th>
@@ -38,7 +37,37 @@
 					</tr>
 				</thead>
 				<tbody>
-				
+				<?php 
+					$i = 1;
+						$qry = $conn->query("SELECT * from `product_list` order by (`id`) asc ");
+						while($row = $qry->fetch_assoc()):
+							foreach($row as $k=> $v){
+								$row[$k] = trim(stripslashes($v));
+							}
+					?>
+						<tr>
+							<td class="text-center"><?php echo $i++; ?></td>
+							<td><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
+
+							<td class="text-center"><img src="" ></td>
+							<td><?php echo ucwords($row['name']) ?></td>
+							<td><?php echo $row['price'] ?></td>
+							<td><?php echo $row['available_stock'] ?></td>
+							<td><?php echo $row['sold'] ?></td>
+
+							<td align="center">
+								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+				                  		Action
+				                    <span class="sr-only">Toggle Dropdown</span>
+				                  </button>
+				                  <div class="dropdown-menu" role="menu">
+				                    <a class="dropdown-item" href="?page=user/manage_user&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <div class="dropdown-divider"></div>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                  </div>
+							</td>
+						</tr>
+					<?php endwhile; ?>
 
 
 				
