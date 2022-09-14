@@ -26,6 +26,21 @@ function validate_image($file){
 		return base_url.'dist/img/no-image-available.png';
 	}
 }
+
+function format_num($number = '' , $decimal = ''){
+    if(is_numeric($number)){
+        $ex = explode(".",$number);
+        $decLen = isset($ex[1]) ? strlen($ex[1]) : 0;
+        if(is_numeric($decimal)){
+            return number_format($number,$decimal);
+        }else{
+            return number_format($number,$decLen);
+        }
+    }else{
+        return "Invalid Input";
+    }
+}
+
 function isMobileDevice(){
     $aMobileUA = array(
         '/iphone/i' => 'iPhone', 

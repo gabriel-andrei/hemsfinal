@@ -1,5 +1,3 @@
-<h1 class="text-light">Welcome to <?php echo $_settings->info('name') ?></h1>
-<hr class="border-light">
 <div class="row">
 <div class="col-12 col-sm-3 col-md-3">
             <div class="info-box">

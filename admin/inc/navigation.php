@@ -55,6 +55,14 @@
                         </p>
                       </a>
                     </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=payment" class="nav-link nav-payment">
+                        <i class="nav-icon fas fa-credit-card"></i>
+                        <p>
+                          Payment
+                        </p>
+                      </a>
+                    </li>
                     <li class="nav-header">Reports</li>
                       <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=sales_report" class="nav-link nav-sales_report">
