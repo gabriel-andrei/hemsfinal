@@ -66,7 +66,7 @@ if(isset($_GET['id'])){
                                                 <select id="service_sel" class="form-control form-control-sm rounded">
                                                     <option value="" disabled selected></option>
                                                     <?php 
-                                                    $service_qry = $conn->query("SELECT * FROM `service_list` where delete_flag = 0 and `status` = 1 order by `name`");
+                                                    $service_qry = $conn->query("SELECT * FROM `transaction_list` where delete_flag = 0 and `status` = 1 order by `name`");
                                                     while($row = $service_qry->fetch_assoc()):
                                                     ?>
                                                     <option value="<?= $row['id'] ?>" data-price = "<?= $row['price'] ?>"><?= $row['name'] ?></option>
@@ -133,8 +133,8 @@ if(isset($_GET['id'])){
                                                 <select id="product_sel" class="form-control form-control-sm rounded">
                                                     <option value="" disabled selected></option>
                                                     <?php 
-                                                    $product_qry = $conn->query("SELECT * FROM `product_list` where delete_flag = 0 and `status` = 1 and (coalesce((SELECT SUM(quantity) FROM `inventory_list` where product_id = product_list.id),0) - coalesce((SELECT SUM(tp.qty) FROM `transaction_products` tp inner join `transaction_list` tl on tp.transaction_id = tl.id where tp.product_id = product_list.id and tl.status != 4),0)) > 0 ".(isset($id) ? " or id = '{$id}' " : "")." order by `name`");
-                                                    while($row = $product_qry->fetch_assoc()):
+                                                    $service_qry = $conn->query("SELECT * FROM `transaction_list` where delete_flag = 0 and `status` = 1 order by `name`");
+                                                    while($row = $service_qry->fetch_assoc()):
                                                     ?>
                                                     <option value="<?= $row['id'] ?>" data-price = "<?= $row['price'] ?>"><?= $row['name'] ?></option>
                                                     <?php endwhile; ?>
@@ -164,7 +164,7 @@ if(isset($_GET['id'])){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php 
+                                        <!--<?php 
                                             $product_total = 0;
                                             if(isset($id)):
                                             $tp_qry = $conn->query("SELECT tp.*, p.name as `product` FROM `transaction_products` tp inner join `product_list` p on tp.product_id = p.id where tp.`transaction_id` = '{$id}' ");
@@ -185,7 +185,7 @@ if(isset($_GET['id'])){
                                                 <td class="text-right product_total"><?= format_num($row['price'] * $row['qty']) ?></td>
                                             </tr>
                                         <?php endwhile; ?>
-                                        <?php endif; ?>
+                                        <?php endif; ?>-->
                                         </tbody>
                                         <tfoot>
                                             <tr class="bg-gradient-secondary">
@@ -198,7 +198,7 @@ if(isset($_GET['id'])){
                             </div>
                         </div>
                         <div class="clear-fix mb-3"></div>
-                        <h2 class="text-navy text-right">Total Payable Amount: <b id="amount"><?= isset($amount) ? format_num($amount) : "0.00" ?></b></h2>
+                        <h2 class="text-right">Total Payable Amount: <b id="amount"><?= isset($amount) ? format_num($amount) : "0.00" ?></b></h2>
                         <hr>
                         <?php if($_settings->userdata('type') == 3 && !isset($id)): ?>
                             <input type="hidden" name="mechanic_id" value="<?= $_settings->userdata('id') ?>">

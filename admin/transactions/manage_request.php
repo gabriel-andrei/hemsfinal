@@ -130,11 +130,11 @@ while($row = $meta->fetch_assoc()){
             </div>
         </div>
     </div>
-        <div class="card-footer">
-			<div class="col-md-12">
+        <div class="w-100 d-flex justify-content-end mx-2">
+			<div class="col-auto">
 				<div class="row">
-					<button class="btn btn-sm btn-primary mr-2" form="#">Save</button>
-					<a class="btn btn-sm btn-secondary" href="./?page=transactions/index">Cancel</a>
+					<button class="btn btn-primary btn-sm rounded-0" form="#">Save Transaction</button>
+					<a class="btn btn-light btn-sm rounded-0" href="./?page=transactions/index">Cancel</a>
 				</div>
 			</div>
 	    </div>

@@ -5,10 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">Inventory</h3>
-			<div class="card-tools">
-				<a href=" " id="create_new" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
-			</div>
+		<h3 class="card-title">List of Payments</h3>
 	</div>
 	<div class="card-body">
 		<div class="container-fluid">
@@ -37,7 +34,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<?php 
+				<!--<?php 
 					$i = 1;
 						$qry = $conn->query("SELECT * from `product_list` order by (`id`) asc ");
 						while($row = $qry->fetch_assoc()):
@@ -67,10 +64,7 @@
 				                  </div>
 							</td>
 						</tr>
-					<?php endwhile; ?>
-
-
-				
+					<?php endwhile; ?>-->
 				</tbody>
 			</table>
 		</div>
