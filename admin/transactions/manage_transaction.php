@@ -66,10 +66,10 @@ if(isset($_GET['id'])){
                                                 <select id="service_sel" class="form-control form-control-sm rounded">
                                                     <option value="" disabled selected></option>
                                                     <?php 
-                                                    $service_qry = $conn->query("SELECT * FROM `transaction_list` where delete_flag = 0 and `status` = 1 order by `name`");
+                                                    $service_qry = $conn->query("SELECT `service` FROM `service_list` where delete_flag = 0 and `status` = 1 order by `service`");
                                                     while($row = $service_qry->fetch_assoc()):
                                                     ?>
-                                                    <option value="<?= $row['id'] ?>" data-price = "<?= $row['price'] ?>"><?= $row['name'] ?></option>
+                                                    <option value="<?= $row['id'] ?>" data-price = "<?= $row['price'] ?>"><?= $row['service'] ?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -132,8 +132,8 @@ if(isset($_GET['id'])){
                                                 <label for="product_sel" class="control-label">Select Product</label>
                                                 <select id="product_sel" class="form-control form-control-sm rounded">
                                                     <option value="" disabled selected></option>
-                                                    <?php 
-                                                    $service_qry = $conn->query("SELECT * FROM `transaction_list` where delete_flag = 0 and `status` = 1 order by `name`");
+                                                    <?php
+                                                    $service_qry = $conn->query("SELECT `name` FROM `product_list` where delete_flag = 0 and `status` = 1 order by `name`");
                                                     while($row = $service_qry->fetch_assoc()):
                                                     ?>
                                                     <option value="<?= $row['id'] ?>" data-price = "<?= $row['price'] ?>"><?= $row['name'] ?></option>
@@ -212,8 +212,8 @@ if(isset($_GET['id'])){
                                         <option value="" disabled <?= !isset($mechanic_id) ? "selected" : "" ?>></option>
                                         <option value="" <?= isset($mechanic_id) && in_array($mechanic_id,[null,""]) ? "selected" : "" ?>>Unset</option>
                                         <?php 
-                                        $mechanic_qry = $conn->query("SELECT *,concat(firstname,' ', coalesce(concat(middlename,' '),''), lastname) as `name` FROM `mechanic_list` where delete_flag = 0 and `status` = 1 ".(isset($mechanic_id) && !is_null($mechanic_id) ? " or id = '{$mechanic_id}' " : '')." order by `name` asc");
-                                        while($row = $mechanic_qry->fetch_array()):
+                                        $mechanics_qry = $conn->query("SELECT * FROM `mechanics_list` where delete_flag = 0 and `status` = 1  order by `name` asc");
+                                        while($row = $mechanics_qry->fetch_array()):
                                         ?>
                                         <option value="<?= $row['id'] ?>" <?= isset($mechanic_id) && $mechanic_id == $row['id'] ? "selected" : "" ?>><?= $row['name'] ?></option>
                                         <?php endwhile; ?>
@@ -417,7 +417,7 @@ if(isset($_GET['id'])){
 				},
 				success:function(resp){
 					if(typeof resp =='object' && resp.status == 'success'){
-						location.href = "./?page=transactions/view_details&id="+resp.tid
+						location.href = "./?page=transactions/manage_transaction"+resp.tid
 					}else if(resp.status == 'failed' && !!resp.msg){
                         var el = $('<div>')
                             el.addClass("alert alert-danger err-msg").text(resp.msg)
